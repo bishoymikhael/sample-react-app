@@ -1,5 +1,10 @@
 pipeline {
-  agent { label 'nodejs-builder' }
+  agent {
+    node {
+      label 'nodejs-builder'
+      customWorkspace '/agent'
+    }
+  }
 
   stages {
 
