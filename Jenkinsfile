@@ -11,7 +11,7 @@ pipeline {
     stage ('install deps') {
       steps {
         echo "attempting deps install..."
-        sh 'npm i --verbose'
+        sh -c 'npm i --verbose'
         echo "installed deps"
       }
     }
