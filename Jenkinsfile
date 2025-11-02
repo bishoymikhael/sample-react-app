@@ -4,9 +4,11 @@ pipeline {
   stages {
 
     stage ('install deps') {
-      echo "attempting deps install..."
-      sh 'npm i --verbose'
-      echo "installed deps"
+      steps {
+        echo "attempting deps install..."
+        sh 'npm i --verbose'
+        echo "installed deps"
+      }
     }
   }
 }
