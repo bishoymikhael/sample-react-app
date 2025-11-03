@@ -25,7 +25,7 @@ pipeline {
               usernamePassword(credentialsId: 'vm-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
             ]) {
             sh """
-              echo ${PASSWORD} | ssh ${USERNAME}@192.168.100.2 -p 25
+              echo ${PASSWORD} | ssh ${USERNAME}@localhost -p 25
               echo whoami
             """
           }
