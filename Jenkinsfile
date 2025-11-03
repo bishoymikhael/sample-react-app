@@ -15,5 +15,11 @@ pipeline {
         echo "installed deps"
       }
     }
+
+    stage ('sample push to registry') {
+      steps {
+        
+      }
+    }
   }
 }
