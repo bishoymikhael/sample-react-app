@@ -22,7 +22,6 @@ pipeline {
       steps {
         script {
           withCredentials([[
-            $class: "ArtifactDockerVM",
             credentialsId: "vm-creds",
             usernameVariable: 'VM_USER',
             passwordVariable: 'VM_PASSWORD',
