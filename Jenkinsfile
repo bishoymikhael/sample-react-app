@@ -8,6 +8,8 @@ pipeline {
 
   stages {
 
+    // assume previous steps
+
     stage ('install deps') {
       steps {
         echo "attempting deps install..."
@@ -16,8 +18,9 @@ pipeline {
       }
     }
 
-    stage ('sample push to registry') {
+    stage ('artifact-manager') {
       steps {
+        ssh 'root@192.168.100.2 -p 25' | echo 'as'
         
       }
     }
