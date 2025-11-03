@@ -20,8 +20,19 @@ pipeline {
 
     stage ('artifact-manager') {
       steps {
-        ssh 'root@192.168.100.2 -p 25' | echo 'as'
-        
+        script {
+          withCredentials([[
+            $class: "ArtifactDockerVM",
+            credentialsId: "vm-creds",
+            usernameVariable: 'VM_USER',
+            passwordVariable: 'VM_PASSWORD',
+          ]]) {
+            sh """
+              echo ${VM_PASSWORD} | ssh ${VM_USER}@192.168.100.2 -p 25
+              echo whoami
+            """
+          }
+        }
       }
     }
   }
