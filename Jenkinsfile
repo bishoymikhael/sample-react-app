@@ -21,14 +21,11 @@ pipeline {
     stage ('artifact-manager') {
       steps {
         script {
-          withCredentials([[
-            $class: "UsernamePasswordMultiBinding",
-            credentialsId: 'vm-creds',
-            usernameVariable: 'VM_USER',
-            passwordVariable: 'VM_PASSWORD',
-          ]]) {
+           withCredentials([
+              usernamePassword(credentialsId: 'vm-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+            ]) {
             sh """
-              echo ${VM_PASSWORD} | ssh ${VM_USER}@192.168.100.2 -p 25
+              echo ${PASSWORD} | ssh ${USERNAME}@192.168.100.2 -p 25
               echo whoami
             """
           }
