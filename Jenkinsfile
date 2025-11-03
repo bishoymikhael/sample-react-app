@@ -23,7 +23,7 @@ pipeline {
         script {
           withCredentials([[
             $class: "UsernamePasswordMultiBinding",
-            credentialsId: "vm-creds",
+            credentialsId: 'vm-creds',
             usernameVariable: 'VM_USER',
             passwordVariable: 'VM_PASSWORD',
           ]]) {
